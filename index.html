@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday 💖</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      height: 100vh;
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      overflow: hidden;
+      background: linear-gradient(135deg, #ff85dc, #f197bf, #fad0c4);
+      background-size: 400% 400%;
+      animation: gradientMove 15s ease infinite;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      color: white;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Floating hearts for ambiance */
+    .heart {
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Heart_corazón.svg/1024px-Heart_corazón.svg.png');
+      background-size: cover;
+      opacity: 0.6;
+      animation: floatHearts 10s linear infinite;
+    }
+
+    @keyframes floatHearts {
+      0% { transform: translateY(100vh) scale(0.5); opacity: 0.8; }
+      100% { transform: translateY(-10vh) scale(1.1); opacity: 0; }
+    }
+
+    .section { display: none; }
+    .active { display: block; }
+
+    /* Glass Buttons */
+    .btn-glass {
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(10px);
+      color: #fff;
+      border-radius: 40px;
+      padding: 12px 30px;
+      font-weight: 600;
+      margin-top: 20px;
+      transition: all 0.4s ease;
+      box-shadow: 0 0 10px rgba(255,255,255,0.4);
+    }
+    .btn-glass:hover {
+      background: rgba(255, 255, 255, 0.4);
+      color: #ff4d94;
+      transform: scale(1.05);
+    }
+
+    /* Fade Animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade { animation: fadeIn 1s ease forwards; }
+
+    /* Countdown */
+    .countdown-number {
+      font-size: 6rem;
+      font-weight: 700;
+      animation: pulse 1s ease-in-out infinite;
+      text-shadow: 0 0 15px rgba(255,255,255,0.8);
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.3); opacity: 0.7; }
+    }
+
+    /* Final Floral Theme */
+    .final {
+      position: relative;
+      z-index: 2;
+      animation: fadeIn 2s ease forwards;
+    }
+    .birthday-text {
+      font-family: 'Great Vibes', cursive;
+        font-size: 3rem; /* increase for brushy effect */
+        letter-spacing: 2px;
+      text-shadow: 0 0 15px rgba(255,255,255,0.9);
+    }
+    .birthday-text-letter {
+      font-family: 'Great Vibes', cursive;
+        font-size: 2rem; /* increase for brushy effect */
+        letter-spacing: 2px;
+      text-shadow: 0 0 15px rgba(255,255,255,0.9);
+    }
+    .letter {
+        font-family: 'Poppins', sans-serif;
+font-weight: 400;
+font-style: italic;
+
+      font-size: 1.2rem;
+      margin-top: 15px;
+      line-height: 1.7;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      color: #fffdfd;
+      text-shadow: 0 0 8px rgba(255,255,255,0.5);
+      animation: fadeIn 3s ease;
+    }
+     /* Final Card */
+    .card-glass {
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      backdrop-filter: blur(15px);
+      padding: 30px;
+      border-radius: 20px;
+      color: #fff;
+      max-width: 90%;
+      box-shadow: 0 0 25px rgba(255,255,255,0.2);
+      animation: fadeIn 2s ease forwards;
+    }
+
+    /* Confetti */
+    .confetti {
+      position: absolute;
+      width: 8px;
+      height: 14px;
+      background: pink;
+      top: 0;
+      animation: fall 5s linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(-10px) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+    }
+
+    @media (max-width: 576px) {
+      .birthday-text { font-size: 1.8rem; }
+      .countdown-number { font-size: 4rem; }
+      .letter { font-size: 1rem; padding: 0 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating hearts -->
+  <div class="heart" style="left:10%; animation-delay:0s;"></div>
+  <div class="heart" style="left:40%; animation-delay:2s;"></div>
+  <div class="heart" style="left:70%; animation-delay:4s;"></div>
+  <div class="heart" style="left:85%; animation-delay:1s;"></div>
+
+  <!-- Step 1 -->
+  <div id="sec1" class="section active">
+    <h2 class="fade">Hey, I have something for you 💌</h2>
+    <button class="btn-glass fade" onclick="nextSection('sec2')">To my special one </button>
+  </div>
+
+  <!-- Step 2 -->
+  <div id="sec2" class="section">
+    <button class="btn-glass fade" onclick="nextSection('sec3')">To my love </button>
+  </div>
+
+  <!-- Step 3 -->
+  <div id="sec3" class="section">
+    <button class="btn-glass fade" onclick="nextSection('sec4')">To my pretty girl </button>
+  </div>
+
+  <!-- Step 4 -->
+  <div id="sec4" class="section">
+    <button class="btn-glass fade" onclick="startCountdown()">My sleeping panda </button>
+  </div>
+
+  <!-- Countdown -->
+  <div id="countdown" class="section">
+    <div id="count" class="countdown-number">3</div>
+  </div>
+
+  <!-- Final -->
+  <div id="final" class="section final">
+    <h1 class="birthday-text">Happy Birthday Shruuu 💖</h1>
+    <p class="letter">
+        Even miles apart, you still make my world feel warm.<br>
+        Every moment without you reminds me how lucky I am to have you.<br>
+        On your birthday, I just want you to know — my heart beats only for you.<br>
+        
+    </p>
+    <h2 class="letter">Happy Birthday, My love. My Girl💖🌸</h2>
+
+    <div class="card-glass">
+      <h5 class="birthday-text-letter"> Your smile lights the days I miss you most. 
+        On your special day, I wish you endless laughter, gentle joy, and all the love you deserve.
+        we will stay with each other at every moment no matter what situation. I'm counting moments until I hold you again</h1>
+      <!-- small hearts positions -->
+        <div class="hearts">
+          <div class="heart h1"></div>
+          <div class="heart h2"></div>
+          <div class="heart h3"></div>
+          <div class="heart h4"></div>
+        </div>
+      <p class="letter">
+      </p>
+    </div>
+  </div>
+
+  <script>
+    const sections = document.querySelectorAll('.section');
+    function nextSection(id) {
+      sections.forEach(s => s.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+
+    function startCountdown() {
+      sections.forEach(s => s.classList.remove('active'));
+      document.getElementById('countdown').classList.add('active');
+      let count = 3;
+      const num = document.getElementById('count');
+      const timer = setInterval(() => {
+        count--;
+        if (count === 0) {
+          clearInterval(timer);
+          sections.forEach(s => s.classList.remove('active'));
+          document.getElementById('final').classList.add('active');
+          startConfetti();
+        } else {
+          num.textContent = count;
+        }
+      }, 1000);
+    }
+
+    // Confetti Function
+    function startConfetti() {
+      for (let i = 0; i < 60; i++) {
+        const confetti = document.createElement('div');
+        confetti.classList.add('confetti');
+        confetti.style.left = Math.random() * 100 + 'vw';
+        confetti.style.backgroundColor = randomColor();
+        confetti.style.animationDuration = (Math.random() * 3 + 3) + 's';
+        confetti.style.animationDelay = Math.random() * 2 + 's';
+        document.body.appendChild(confetti);
+      }
+      setTimeout(() => {
+        document.querySelectorAll('.confetti').forEach(el => el.remove());
+      }, 10000);
+    }
+
+    function randomColor() {
+      const colors = ['#ff9a9e', '#fad0c4', '#fbc2eb', '#a6c1ee', '#ffdde1', '#ffc3a0'];
+      return colors[Math.floor(Math.random() * colors.length)];
+    }
+  </script>
+
+</body>
+</html>
